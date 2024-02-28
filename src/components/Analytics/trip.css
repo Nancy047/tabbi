@@ -1,0 +1,163 @@
+.user-container {
+  padding: 20px;
+}
+.analytics-header {
+  font-weight: 600;
+  color: #151515;
+  font-size: 22px;
+  font-weight: 500;
+  display: flex;
+  gap: 6px;
+}
+
+.userinput {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+
+  padding: 10px;
+  border-radius: 5px;
+
+  width: 100%;
+}
+.alluser {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid #838d99;
+  border-bottom-style: dashed;
+}
+.Reset-button {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  color: #2f9ed6;
+  background-color: #ffffff;
+  border: 1px solid #2f9ed6;
+  cursor: pointer;
+}
+.Submit-button {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2f9ed6;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.input-elevated {
+  font-size: 16px;
+  line-height: 1.5;
+  border: none;
+  background: #ffffff;
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  background-size: 20px 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  width: 300px;
+  padding: 0.5em 1em 0.5em 1em;
+  border: 1px solid#CCCCCC;
+}
+
+.input-elevated::placeholder {
+  color: #838d99;
+}
+
+.input-elevated:focus {
+  outline: none;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16);
+}
+.user-info {
+  margin-top: 10px;
+  padding: 10px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #838d99;
+  border-bottom-style: dashed;
+}
+.two-button {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  padding: 26px;
+}
+
+/* conntent */
+
+.cust-info {
+  font-size: 12px;
+}
+
+.p-nametag {
+  padding: none;
+  margin-bottom: 0rem;
+  font-size: 15px;
+}
+
+.p-numbertag {
+  padding: none;
+  margin-bottom: 0rem;
+  font-size: 10px;
+  color: #666666;
+}
+
+.p-addresstag {
+  padding: none;
+  margin-bottom: 0rem;
+  font-size: 10px;
+  color: #666666;
+}
+.row {
+  display: flex;
+}
+.rowinfo-header {
+  font-size: 15px;
+  color: #151515;
+}
+
+.rowinfo-content {
+  font-size: 14px;
+
+  color: #454545;
+}
+
+.secondary-content {
+  text-align: left;
+  width: 75%;
+  border-left: 1px solid #838d99;
+  height: 125px;
+  padding-left: 60px;
+}
+
+.right-line {
+  width: 20%;
+  font-size: 16px;
+  padding-bottom: 20px;
+}
+.recommend-card {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+.recom-card {
+  width: 30%;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  border-style: dashed;
+  border-radius: 5px;
+}
+.rec-header {
+  font-size: 16px;
+}
+.p-para {
+  font-size: 10px;
+}
+.arrow-img {
+  display: flex;
+  margin-left: 95px;
+  margin-top: 24px;
+  cursor: pointer;
+}
