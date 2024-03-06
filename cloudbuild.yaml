@@ -11,7 +11,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'copilotui'
+      - 'taabiui'
       - '--image=gcr.io/$PROJECT_ID/taabiui'
       - '--region=us-central1'
       - '--allow-unauthenticated' 
