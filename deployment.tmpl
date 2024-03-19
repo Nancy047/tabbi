@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taabi-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: taabi-ui
+  template:
+    metadata:
+      labels:
+        app: taabi-ui
+    spec:
+      containers:
+      - name: taabi-ui
+        image: gcr.io/lumen-b-ctl-047/taabi-ui:latest
+        ports:
+        - containerPort: 3000

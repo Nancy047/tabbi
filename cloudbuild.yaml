@@ -1,19 +1,44 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'Build Docker Image'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/taabiui', '.']
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud help -- SEARCH_TERMS
 
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'Docker Push'
-    args: ["push", "gcr.io/$PROJECT_ID/taabiui"]
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud config set project lumen-b-ctl-047 &&
+    gcloud config set compute/region us-central1 &&
+    gcloud config set compute/zone us-central1-c &&
+    gcloud config set container/cluster b-ctl-dev-cluster
 
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'run'
-      - 'deploy'
-      - 'taabiui'
-      - '--image=gcr.io/$PROJECT_ID/taabiui'
-      - '--region=us-central1'
-      - '--allow-unauthenticated' 
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - build
+  - -t
+  - us-central1-docker.pkg.dev/lumen-b-ctl-047/b-ctl-047-artifact/taabi-ui:$SHORT_SHA
+  - .
 
-images: ['gcr.io/$PROJECT_ID/taabiui']
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - push
+  - us-central1-docker.pkg.dev/lumen-b-ctl-047/b-ctl-047-artifact/taabi-ui:$SHORT_SHA
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    sed -i 's|image:.*|image: us-central1-docker.pkg.dev/lumen-b-ctl-047/b-ctl-047-artifact/taabi-ui:$SHORT_SHA|g' deployment.yaml
+
+- name: 'gcr.io/cloud-builders/gke-deploy'
+  args:
+  - apply
+  - --filename=deployment.yaml
+  - --namespace=default
+  - --cluster=b-ctl-dev-cluster
+  - --location=us-central1-c
