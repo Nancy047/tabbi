@@ -13,7 +13,7 @@ spec:
         app: taabi-ui
     spec:
       containers:
-      - name: taabi-ui
-        image: gcr.io/lumen-b-ctl-047/taabi-ui:latest
+      - name: copilotui
+        image: us-central1-docker.pkg.dev/lumen-b-ctl-047/b-ctl-047-artifact/taabi-ui:$SHORT_SHA
         ports:
         - containerPort: 3000
